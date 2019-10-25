@@ -1,6 +1,6 @@
 {
   "name": "heallios-admintool",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "private": false,
   "description": "A dummy react npm module",
   "main": "./dist/index.js",
@@ -19,7 +19,8 @@
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0",
     "react-table": "6.10.3",
-    "svg-url-loader": "^3.0.2"
+    "svg-url-loader": "^3.0.2",
+    "react-modal": "3.10.1"
   },
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --inline --host 127.0.0.1 --content-base examples/ --watch",

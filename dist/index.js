@@ -1,3 +1,4 @@
 import { LineChart } from './components/chart';
 import { TableRetention, Table, TableAjaxData } from './components/table';
-export { LineChart, TableRetention, Table, TableAjaxData };
+import { Modal } from "./components/modal";
+export { LineChart, TableRetention, Table, TableAjaxData, Modal };
