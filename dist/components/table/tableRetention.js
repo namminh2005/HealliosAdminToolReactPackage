@@ -13,12 +13,14 @@ class tableRetention extends React.Component {
       if (index == 0) {
         return obj.Cell = TableUtils.firstColCellRender;
       } else {
-        return obj.Cell = that.cellRender.bind(null, data[index].col1.user);
+        return obj.Cell = that.cellRender.bind(null, data);
       }
     });
   }
 
-  cellRender(total, cell) {
+  cellRender(data, cell) {
+    const total = data[cell.index].col1 ? data[cell.index].col1.user : null;
+
     const calColor = (min, max, opacity) => {
       return min + (max - min) * opacity;
     };
@@ -37,23 +39,29 @@ class tableRetention extends React.Component {
       g: 104,
       b: 250
     };
-    const divStyle = {
-      background: `rgb(${calColor(rgbMin.r, rgbMax.r, opacity)}, ${calColor(rgbMin.g, rgbMax.g, opacity)}, ${calColor(rgbMin.b, rgbMax.b, opacity)})`,
-      color: opacity >= 0.5 ? '#fff' : '#000',
+    let divStyle = {
       width: '100%',
       height: '100%',
       display: 'table'
     };
+
+    if (cell.index > 0) {
+      divStyle = { ...divStyle,
+        background: `rgb(${calColor(rgbMin.r, rgbMax.r, opacity)}, ${calColor(rgbMin.g, rgbMax.g, opacity)}, ${calColor(rgbMin.b, rgbMax.b, opacity)})`,
+        color: opacity >= 0.5 ? '#fff' : '#000'
+      };
+    }
+
     const pStyle = {
       margin: '0px',
       display: 'table-cell',
       textAlign: 'center',
       verticalAlign: 'middle'
     };
-    const totalUser = `${Math.round(cell.value / 100 * total)} Users`;
+    const calUsers = total ? `${Math.round(cell.value / 100 * total)} Users` : null;
     return cell.value ? React.createElement("div", {
       style: divStyle,
-      "data-tip": totalUser
+      "data-tip": calUsers
     }, React.createElement("p", {
       style: pStyle
     }, cell.value, "%")) : null;
@@ -61,7 +69,7 @@ class tableRetention extends React.Component {
 
   render() {
     return React.createElement(ReactTable, {
-      className: "react-table-retention -striped",
+      className: "react-table-retention",
       data: this.props.data,
       columns: this.colConfig,
       showPagination: false,

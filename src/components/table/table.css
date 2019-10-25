@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Material+Icons');
+
+.react-table-retention .rt-td{
+  padding: 0px!important;
+}
+
+.ReactTable .rt-tbody .rt-td{
+  border-right: 1px solid rgba(72, 94, 144, 0.16);
+}
+
+.ReactTable .rt-tbody .rt-tr-group{
+  border-bottom: 1px solid rgba(72, 94, 144, 0.16);
+}
+
+.ReactTable .rt-thead.-header{
+  box-shadow: none;
+  border-bottom: 1px solid rgba(72, 94, 144, 0.4);
+}
+.ReactTable{
+  border:1px solid rgba(72, 94, 144, 0.16);
+}
+.ReactTable .rt-thead .rt-th.-sort-asc, .ReactTable .rt-thead .rt-td.-sort-asc,
+.ReactTable .rt-thead .rt-th.-sort-desc, .ReactTable .rt-thead .rt-td.-sort-desc{
+  box-shadow: none;
+}
+.ReactTable .rt-thead .rt-th.-sort-asc::after{
+  content: url(./img/arrow_upward-16px.svg);
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translate(-50%, -50%);
+}
+.ReactTable .rt-thead .rt-th.-sort-desc::after{
+  content: url(./img/arrow_downward-16px.svg);
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translate(-50%, -50%);
+}

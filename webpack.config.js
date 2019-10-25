@@ -36,11 +36,24 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, use: { loader: 'babel-loader' } },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        },
       },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.svg/,
+        use: {
+            loader: 'svg-url-loader',
+            options: {}
+        }
+    }
     ]
   },
 
@@ -51,7 +64,9 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.LoaderOptionsPlugin({ debug: true })
+    new webpack.LoaderOptionsPlugin({
+      debug: true
+    })
   ]
 
 };

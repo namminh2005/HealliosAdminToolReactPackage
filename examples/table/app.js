@@ -1,11 +1,45 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {TableRetention} from '../../src'
+import { TableRetention, Table, TableAjaxData } from '../../src'
 import TableUtils from '../../src/components/table/tableUtils'
+import _ from "lodash";
+import namor from "namor";
 
 const appElement = document.getElementById('example');
 
 const App = (props) => {
+
+  const range = len => {
+    const arr = [];
+    for (let i = 0; i < len; i++) {
+      arr.push(i);
+    }
+    return arr;
+  };
+
+  const newPerson = () => {
+    const statusChance = Math.random();
+    return {
+      firstName: namor.generate({ words: 1, numbers: 0 }),
+      lastName: namor.generate({ words: 1, numbers: 0 }),
+      age: Math.floor(Math.random() * 30),
+      visits: Math.floor(Math.random() * 100),
+      progress: Math.floor(Math.random() * 100),
+      status:
+        statusChance > 0.66
+          ? "relationship"
+          : statusChance > 0.33 ? "complicated" : "single"
+    };
+  };
+
+  const makeData = (len = 5553) => {
+    return range(len).map(d => {
+      return {
+        ...newPerson(),
+        children: range(10).map(newPerson)
+      };
+    });
+  }
 
   const dataTable = [
     {
@@ -24,7 +58,7 @@ const App = (props) => {
         user: 1677
       },
       day0: 100.0,
-      day1: 41.0,
+      day1: 56.0,
       day2: 26.0,
       day3: 18.6,
       day4: 14.0,
@@ -37,7 +71,7 @@ const App = (props) => {
         user: 1823
       },
       day0: 100.0,
-      day1: 43.3,
+      day1: 78.3,
       day2: 28.2,
       day3: 20.2,
       day4: 13.7,
@@ -154,9 +188,93 @@ const App = (props) => {
     }
   ]
 
+  const dataTable2 = makeData();
+
+  const colConfig2 = [
+    {
+      Header: "First Name",
+      accessor: "firstName"
+    },
+    {
+      Header: "Last Name",
+      id: "lastName",
+      accessor: d => d.lastName
+    },
+    {
+      Header: "Age",
+      accessor: "age"
+    },
+    {
+      Header: "Status",
+      accessor: "status"
+    },
+    {
+      Header: "Visits",
+      accessor: "visits"
+    }
+  ]
+
+  const rawData = makeData();
+  const requestData = (pageSize, page, sorted, filtered) => {
+    return new Promise((resolve, reject) => {
+      // You can retrieve your data however you want, in this case, we will just use some local data.
+      let filteredData = rawData;
+  
+      // You can use the filters in your request, but you are responsible for applying them.
+      if (filtered.length) {
+        filteredData = filtered.reduce((filteredSoFar, nextFilter) => {
+          return filteredSoFar.filter(row => {
+            return (row[nextFilter.id] + "").includes(nextFilter.value);
+          });
+        }, filteredData);
+      }
+      // You can also use the sorting in your request, but again, you are responsible for applying it.
+      const sortedData = _.orderBy(
+        filteredData,
+        sorted.map(sort => {
+          return row => {
+            if (row[sort.id] === null || row[sort.id] === undefined) {
+              return -Infinity;
+            }
+            return typeof row[sort.id] === "string"
+              ? row[sort.id].toLowerCase()
+              : row[sort.id];
+          };
+        }),
+        sorted.map(d => (d.desc ? "desc" : "asc"))
+      );
+  
+      // You must return an object containing the rows of the current page, and optionally the total pages number.
+      const res = {
+        rows: sortedData.slice(pageSize * page, pageSize * page + pageSize),
+        pages: Math.ceil(filteredData.length / pageSize)
+      };
+  
+      // Here we'll simulate a server response with 500ms of delay.
+      setTimeout(() => resolve(res), 500);
+    });
+  };
+  const colConfig3 = [
+    {
+      Header: "First Name",
+      accessor: "firstName"
+    },
+    {
+      Header: "Last Name",
+      id: "lastName",
+      accessor: d => d.lastName
+    },
+    {
+      Header: "Age",
+      accessor: "age"
+    }
+  ]
+
   return (
     <div>
       <TableRetention data={dataTable} colConfig={colConfig} />
+      <Table data={dataTable2} colConfig={colConfig2} showPagination={false} defaultPageSize={10} />
+      <TableAjaxData colConfig={colConfig3} requestData={requestData} />
     </div>
   )
 }
