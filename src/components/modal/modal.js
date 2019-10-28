@@ -5,18 +5,11 @@ import PropTypes from 'prop-types';
 class Modal extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {
-      modalIsOpen: this.props.modalIsOpen
-    };
-    
     this.handleModalCloseRequest = this.handleModalCloseRequest.bind(this);
     this.handleSaveClicked = this.handleSaveClicked.bind(this);
   }
 
   handleModalCloseRequest() {
-    // opportunity to validate something and keep the modal open even if it
-    // requested to be closed
-    this.setState({modalIsOpen: false});
     this.props.onRequestClose();
   }
 
@@ -24,19 +17,11 @@ class Modal extends React.Component {
     this.props.onRequestSave(e);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.modalIsOpen !== this.props.modalIsOpen ) {
-      this.setState((state, props) => {
-        return {modalIsOpen: props.modalIsOpen};
-      });
-    }
-  }
-
   render () {
     return (
       <ReactModal 
         className="Modal__Bootstrap modal-dialog"
-        isOpen={this.state.modalIsOpen}
+        isOpen={this.props.modalIsOpen}
         onRequestClose={this.handleModalCloseRequest}
       >
       <div className="modal-content">
