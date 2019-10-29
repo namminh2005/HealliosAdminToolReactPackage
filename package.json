@@ -1,6 +1,6 @@
 {
   "name": "heallios-admintool",
-  "version": "0.1.14",
+  "version": "0.1.17",
   "private": false,
   "description": "A dummy react npm module",
   "main": "./dist/index.js",
@@ -22,7 +22,7 @@
     "svg-url-loader": "^3.0.2",
     "react-modal": "3.10.1",
     "react-feather": "2.0.3",
-    "react-dates": "21.3.1"
+    "bootstrap-daterangepicker": "3.0.5"
   },
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --inline --host 127.0.0.1 --content-base examples/ --watch",
@@ -50,6 +50,7 @@
     "@babel/cli": "^7.6.4",
     "@babel/preset-react": "^7.6.3",
     "css-loader": "^3.2.0",
+    "jquery": "^3.4.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "namor": "^1.1.3",

@@ -2,7 +2,7 @@ import { LineChart } from './components/chart'
 import { TableRetention, Table, TableAjaxData } from './components/table'
 import { Modal } from "./components/modal";
 import { Filter } from "./components/filter";
-import { DateRangePickerWrapper } from "./components/datePicker";
+import { DateRangePicker } from "./components/datePicker";
 
 export {
   LineChart,
@@ -11,5 +11,5 @@ export {
   TableAjaxData,
   Modal,
   Filter,
-  DateRangePickerWrapper
+  DateRangePicker
 }
