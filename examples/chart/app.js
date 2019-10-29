@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import {LineChart} from '../../src'
 
 const appElement = document.getElementById('example');
 
 const App = (props) => {
-  const ctxLabel = ['Oct 15', 'Oct 16', 'Oct 17', 'Oct 18', 'Oct 19', 'Oct 20', 'Oct 21', 'Oct 22', 'Oct 23', 'Oct 24', 'Oct 25', 'Oct 26'];
-  const chartData = [
+  const [chartData, setChartData] = useState([
     {
       label: 'user',
       data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30]
@@ -19,7 +18,19 @@ const App = (props) => {
       label: 'pet',
       data: [5, 20, 60, 45, 20, 35, 15, 75, 20, 30, 34, 23]
     }
-  ]
+  ])
+  
+  const ctxLabel = ['Oct 15', 'Oct 16', 'Oct 17', 'Oct 18', 'Oct 19', 'Oct 20', 'Oct 21', 'Oct 22', 'Oct 23', 'Oct 24', 'Oct 25', 'Oct 26'];
+
+  setTimeout(() => {
+    setChartData([
+      {
+        label: 'ec ec',
+        data: [340, 620, 510, 452, 501, 620, 730, 440, 475, 385, 275, 360]
+      }
+    ])
+  }, 5000);
+
   return (
     <div>
       <LineChart ctxLabel={ctxLabel} chartData={chartData} />
