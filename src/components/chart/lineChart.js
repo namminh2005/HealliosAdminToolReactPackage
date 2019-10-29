@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Chart from 'chart.js';
 import {ChartColor} from './config'
 import ChartUtils from './chartUtils'
+import _ from 'lodash'
 
 const canvasStyle = {
   position: 'relative',
@@ -94,7 +95,8 @@ class LineChart extends React.Component{
 
   componentDidUpdate(prevProps) {
     // Typical usage (don't forget to compare props):
-    if (this.props.chartData !== prevProps.chartData) {
+    if (JSON.stringify(this.props.chartData) !== JSON.stringify(prevProps.chartData) ||
+    JSON.stringify(this.props.ctxLabel) !== JSON.stringify(prevProps.ctxLabel)) {
       this.chart.destroy();
 
       this.chart = new Chart(this.canvasEl, {
