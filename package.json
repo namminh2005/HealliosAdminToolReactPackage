@@ -1,6 +1,6 @@
 {
   "name": "heallios-admintool",
-  "version": "0.1.28",
+  "version": "0.1.30",
   "private": false,
   "description": "A dummy react npm module",
   "main": "./dist/index.js",
