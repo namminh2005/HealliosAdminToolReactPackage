@@ -26,3 +26,9 @@
   height: 100%;
   width: 15px;
 }
+.report-filter .chip .chip-text{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}

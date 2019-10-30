@@ -107,6 +107,10 @@ class LineChart extends React.Component{
     }
   }
 
+  componentWillUnmount() {
+    this.chart.destroy();
+  }
+
   render(){
     return (
       <div className="chart-container" style={canvasStyle}>
