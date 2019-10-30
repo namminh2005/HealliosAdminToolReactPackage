@@ -149,7 +149,8 @@ const App = (props) => {
     {
       Header: "",
       id: 'col1',
-      accessor: 'col1'
+      accessor: 'col1',
+      width: 200
     },
     {
       Header: "Day 0",

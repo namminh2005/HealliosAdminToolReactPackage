@@ -37,3 +37,8 @@
   right: 5px;
   transform: translate(-50%, -50%);
 }
+
+.ReactTable .rt-thead .rt-th, .ReactTable .rt-thead .rt-td,
+.ReactTable .rt-tbody .rt-td{
+  max-width: inherit!important;
+}
