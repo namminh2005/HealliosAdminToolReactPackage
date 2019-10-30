@@ -3,5 +3,5 @@ export const ChartColor = {
     xAxes: '#e5e9f2',
     yAxes: '#e5e9f2'
   },
-  colors: ['#001737', '#1ce1ac', '#0168fa']
+  colors: ['#0168fa', '#00cccc', '#5b47fb', '#1ce1ac', '#7987a1', '#f10075']
 };
