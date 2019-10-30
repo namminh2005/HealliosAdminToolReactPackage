@@ -3,4 +3,5 @@ import { TableRetention, Table, TableAjaxData } from './components/table';
 import { Modal } from "./components/modal";
 import { Filter } from "./components/filter";
 import { DateRangePicker } from "./components/datePicker";
-export { LineChart, TableRetention, Table, TableAjaxData, Modal, Filter, DateRangePicker };
+import { PlaceHolder5Lines } from './components/semanticAdapter';
+export { LineChart, TableRetention, Table, TableAjaxData, Modal, Filter, DateRangePicker, PlaceHolder5Lines };
