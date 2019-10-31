@@ -80,7 +80,6 @@ class LineChart extends React.Component {
   }
 
   componentDidMount() {
-    console.log('chart start');
     ChartUtils.customLineChart();
     let chartConfig = {
       type: 'LineWithLine',
@@ -104,7 +103,6 @@ class LineChart extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log('chart destroy');
     this.chart.destroy();
   }
 

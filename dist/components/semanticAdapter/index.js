@@ -1,2 +1,3 @@
 import { PlaceHolder5Lines } from './placeHolder';
-export { PlaceHolder5Lines };
+import { CountryMultipleSelect } from './countryMultipleSelect';
+export { PlaceHolder5Lines, CountryMultipleSelect };
