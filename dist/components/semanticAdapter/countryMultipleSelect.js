@@ -136,6 +136,7 @@ export const CountryMultipleSelect = props => {
     search: true,
     selection: true,
     options: stateOptions,
+    defaultValue: props.defaultValue,
     onChange: handleOnChange
   });
 };
