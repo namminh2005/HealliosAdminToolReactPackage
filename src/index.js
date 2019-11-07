@@ -3,7 +3,7 @@ import { TableRetention, Table, TableAjaxData } from './components/table'
 import { Modal } from "./components/modal";
 import { Filter } from "./components/filter";
 import { DateRangePicker } from "./components/datePicker";
-import { PlaceHolder5Lines, CountryMultipleSelect } from './components/semanticAdapter'
+import { PlaceHolder5Lines, CountryMultipleSelect, DropdownList } from './components/semanticAdapter'
 
 export {
   LineChart,
@@ -14,5 +14,6 @@ export {
   Filter,
   DateRangePicker,
   PlaceHolder5Lines,
-  CountryMultipleSelect
+  CountryMultipleSelect,
+  DropdownList
 }

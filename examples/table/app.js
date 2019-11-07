@@ -272,7 +272,8 @@ const App = (props) => {
   ]
 
   const minhDataTable = [
-    {"firstCol":{"time":"Oct 31","total":0, label: 'Users'},"col0":0,"col1":0,"col2":0,"col3":0,"col4":0,"col5":0,"col6":0},
+    {firstCol: null, col0: 1,col1: 0.8,col2: 0.5833333333333333,col3: 0.6666666666666666,col4: 0,col5: 0,col6: 0},
+    {"firstCol":{"time":"Oct 31","total":1, label: 'Users'},"col0":1,"col1":1,"col2":0,"col3":0,"col4":0,"col5":0,"col6":0},
     {"firstCol":{"time":"Nov 1","total":3, label: 'Users'},"col0":3,"col1":0,"col2":1,"col3":1,"col4":0,"col5":0,"col6":0},
     {"firstCol":{"time":"Nov 2","total":1, label: 'Users'},"col0":1,"col1":1,"col2":1,"col3":1,"col4":0,"col5":0,"col6":0},
     {"firstCol":{"time":"Nov 3","total":2, label: 'Users'},"col0":2,"col1":2,"col2":1,"col3":0,"col4":0,"col5":0,"col6":0},
