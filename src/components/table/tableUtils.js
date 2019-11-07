@@ -9,13 +9,15 @@ const TableUtils = {
     let arr = [];
 
     if(cell.value){
+      let i = 0
       for(let key in cell.value){
-        if(key == 0){
+        if(i == 0){
           arr.push(cell.value[key]);
         }
         else{
           arr.push(cell.value[key] + ' ' + key + 's');
         }
+        i++
       }
     }
 

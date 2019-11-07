@@ -20,12 +20,13 @@ class tableRetention extends React.Component{
     });
   }
   cellRender(data,cell){
-    const total = data[cell.index].col1 ? data[cell.index].col1.user : null;
+    const itemData = data[cell.index];
+    const total = itemData[Object.keys(itemData)[0]] ? itemData[Object.keys(itemData)[0]].user : null;
     const calColor = (min, max, opacity) => {
       return min + (max - min) * opacity;
     }
     
-    const opacity = cell.value / 100;
+    const opacity = total == 0 ? 0 : cell.value / total;
     const rgbMin = {
       // r: 66,
       // g: 133,
@@ -62,7 +63,7 @@ class tableRetention extends React.Component{
     return cell.value ? (
       <div style={divStyle} data-tip={calUsers} >
         {/* <Popup trigger={<div>hiiii</div>} content="asdsd" inverted /> */}
-        <p style={pStyle}>{cell.value}%</p>
+        <p style={pStyle}>{total == 0 ? 0 : Math.round(cell.value/total*100)}%</p>
       </div>) : null
   }
   render(){
