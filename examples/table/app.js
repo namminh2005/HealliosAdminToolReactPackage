@@ -271,8 +271,24 @@ const App = (props) => {
     }
   ]
 
-  const minhDataTable = JSON.parse('[{"firstCol":{"time":"Oct 31","user":0},"col0":0,"col1":0,"col2":0,"col3":0,"col4":0,"col5":0,"col6":0},{"firstCol":{"time":"Nov 1","user":3},"col0":3,"col1":0,"col2":1,"col3":1,"col4":0,"col5":0,"col6":0},{"firstCol":{"time":"Nov 2","user":1},"col0":1,"col1":1,"col2":1,"col3":1,"col4":0,"col5":0,"col6":0},{"firstCol":{"time":"Nov 3","user":2},"col0":2,"col1":2,"col2":1,"col3":0,"col4":0,"col5":0,"col6":0},{"firstCol":{"time":"Nov 4","user":2},"col0":2,"col1":1,"col2":0,"col3":0,"col4":0,"col5":0,"col6":0},{"firstCol":{"time":"Nov 5","user":2},"col0":2,"col1":0,"col2":0,"col3":0,"col4":0,"col5":0,"col6":0},{"firstCol":{"time":"Nov 6","user":1},"col0":1,"col1":0,"col2":0,"col3":0,"col4":0,"col5":0,"col6":0}]');
-  const minhConfig = JSON.parse('[{"Header":"","id":"firstCol","accessor":"firstCol"},{"Header":"Day 0","id":"col0","accessor":"col0"},{"Header":"Day 1","id":"col1","accessor":"col1"},{"Header":"Day 2","id":"col2","accessor":"col2"},{"Header":"Day 3","id":"col3","accessor":"col3"},{"Header":"Day 4","id":"col4","accessor":"col4"},{"Header":"Day 5","id":"col5","accessor":"col5"},{"Header":"Day 6","id":"col6","accessor":"col6"}]');
+  const minhDataTable = [
+    {"firstCol":{"time":"Oct 31","total":0, label: 'Users'},"col0":0,"col1":0,"col2":0,"col3":0,"col4":0,"col5":0,"col6":0},
+    {"firstCol":{"time":"Nov 1","total":3, label: 'Users'},"col0":3,"col1":0,"col2":1,"col3":1,"col4":0,"col5":0,"col6":0},
+    {"firstCol":{"time":"Nov 2","total":1, label: 'Users'},"col0":1,"col1":1,"col2":1,"col3":1,"col4":0,"col5":0,"col6":0},
+    {"firstCol":{"time":"Nov 3","total":2, label: 'Users'},"col0":2,"col1":2,"col2":1,"col3":0,"col4":0,"col5":0,"col6":0},
+    {"firstCol":{"time":"Nov 4","total":2, label: 'Users'},"col0":2,"col1":1,"col2":0,"col3":0,"col4":0,"col5":0,"col6":0},
+    {"firstCol":{"time":"Nov 5","total":2, label: 'Users'},"col0":2,"col1":0,"col2":0,"col3":0,"col4":0,"col5":0,"col6":0},
+    {"firstCol":{"time":"Nov 6","total":1, label: 'Users'},"col0":1,"col1":0,"col2":0,"col3":0,"col4":0,"col5":0,"col6":0}
+  ];
+  const minhConfig = [
+    {"Header":"","id":"firstCol","accessor":"firstCol"},
+    {"Header":"Day 0","id":"col0","accessor":"col0"},
+    {"Header":"Day 1","id":"col1","accessor":"col1"},
+    {"Header":"Day 2","id":"col2","accessor":"col2"},
+    {"Header":"Day 3","id":"col3","accessor":"col3"},
+    {"Header":"Day 4","id":"col4","accessor":"col4"},
+    {"Header":"Day 5","id":"col5","accessor":"col5"},
+    {"Header":"Day 6","id":"col6","accessor":"col6"}];
 
   return (
     <div>

@@ -1,7 +1,3 @@
 import React from "react";
-
-const TableUtils = {
-  
-}
-
+const TableUtils = {};
 export default TableUtils;

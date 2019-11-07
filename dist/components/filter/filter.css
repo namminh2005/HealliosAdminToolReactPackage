@@ -1,0 +1,34 @@
+.report-filter-wrapper{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.report-filter{
+  display: flex;
+}
+.report-filter .chip{
+  display: flex;
+  border-radius: 12px;
+  line-height: 24px;
+  height: 24px;
+  margin: 0 8px 0 0;
+  max-width: 100%;
+  padding: 0 5px 0 12px;
+  white-space: nowrap;
+  background-color: #e8f0fe;
+  color: #1967d2;
+}
+.report-filter .chip .chip-text{
+  margin: 0px;
+  margin-right: 5px;
+}
+.report-filter .chip svg{
+  height: 100%;
+  width: 15px;
+}
+.report-filter .chip .chip-text{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
