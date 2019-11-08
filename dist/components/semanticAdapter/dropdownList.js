@@ -10,6 +10,7 @@ export default (props => {
     fluid: true,
     selection: true,
     options: props.options,
-    onChange: handleOnChange
+    onChange: handleOnChange,
+    defaultValue: props.defaultValue
   });
 });

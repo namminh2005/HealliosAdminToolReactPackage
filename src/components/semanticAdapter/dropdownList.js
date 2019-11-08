@@ -5,13 +5,14 @@ export default (props) => {
   const handleOnChange = (e, data) => {
     props.onChange(e, data);
   }
-  
+
   return (
     <Dropdown
       placeholder={props.placeholder}
       fluid
       selection
       options={props.options}
-      onChange={handleOnChange} />
+      onChange={handleOnChange}
+      defaultValue={props.defaultValue} />
   )
 }

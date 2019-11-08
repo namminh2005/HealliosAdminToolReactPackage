@@ -52,11 +52,11 @@ class tableRetention extends React.Component {
     };
 
     if (cell.index == 0) {
-      return cell.value ? React.createElement("div", {
+      return React.createElement("div", {
         style: divStyle
       }, React.createElement("p", {
         style: pStyle
-      }, (Math.round(cell.value * 1000) / 1000 * 100).toFixed(1), " %")) : null;
+      }, (Math.round(cell.value * 1000) / 1000 * 100).toFixed(1), " %"));
     } else {
       const itemData = data[cell.index];
       const total = itemData['firstCol'] ? itemData['firstCol'].total : null;

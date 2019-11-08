@@ -53,9 +53,9 @@ class tableRetention extends React.Component{
     }
 
     if(cell.index == 0){
-      return cell.value ? (<div style={divStyle}>
+      return (<div style={divStyle}>
         <p style={pStyle}>{((Math.round(cell.value*1000) / 1000) * 100).toFixed(1)} %</p>
-      </div>) : null;
+      </div>);
     }
     else{
       const itemData = data[cell.index];

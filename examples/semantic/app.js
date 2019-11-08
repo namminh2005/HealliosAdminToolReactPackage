@@ -27,9 +27,9 @@ const App = (props) => {
     <div>
       <PlaceHolder5Lines></PlaceHolder5Lines>
       <hr />
-      <CountryMultipleSelect onChange={() => {}} defaultValue={['Benin']}></CountryMultipleSelect>
+      <CountryMultipleSelect onChange={() => {}} defaultValue={['VN']}></CountryMultipleSelect>
       <hr />
-      <DropdownList placeholder={dropdown.placeHolder} options={dropdown.options} onChange={(e,data) => console.log(data)}></DropdownList>
+      <DropdownList defaultValue='Jenny Hess' placeholder={dropdown.placeHolder} options={dropdown.options} onChange={(e,data) => console.log(data)}></DropdownList>
     </div>
   )
 }
