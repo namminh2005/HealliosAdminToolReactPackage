@@ -13,7 +13,6 @@ const stateOptions = _.map(countryList, (country, index) => ({
 
 export const CountryMultipleSelect = (props) => {
   const handleOnChange = (e, data) => {
-    console.log(data);
     props.onChange(e, data);
   }
   return (
